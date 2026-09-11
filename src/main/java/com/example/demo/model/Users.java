@@ -1,21 +1,28 @@
 package com.example.demo.model;
 
+import com.example.demo.util.Role;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.Id;
 
 @Entity
 public class Users {
+
     @Id
     private int id;
+
     private String username;
     private String password;
-    private String role;
 
-    public String getRole() {
+    @Enumerated(EnumType.STRING)
+    private Role role;
+
+    public Role getRole() {
         return role;
     }
 
-    public void setRole(String role) {
+    public void setRole(Role role) {
         this.role = role;
     }
 

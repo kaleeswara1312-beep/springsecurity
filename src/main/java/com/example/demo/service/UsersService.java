@@ -15,8 +15,8 @@ public class UsersService {
     @Autowired
     UsersRepo usersRepo;
 
-//    @Autowired
-//    private AuthenticationManager authenticationManager;
+    @Autowired
+    private AuthenticationManager authenticationManager;
 
     @Autowired
     private JwtService jwtService;
@@ -33,20 +33,20 @@ public class UsersService {
         }
     }
 
-//    public String verify(Users user) {
-//
-//        System.out.println(user);
-//        Authentication authentication = authenticationManager.authenticate(
-//                new UsernamePasswordAuthenticationToken(
-//                        user.getUsername(),
-//                        user.getPassword()
-//                )
-//        );
-//
-//        if (authentication.isAuthenticated()) {
-//            return jwtService.generateToken(user.getUsername());
-//        }
-//
-//        return "Login failed";
-//    }
+    public String verify(Users user) {
+
+        System.out.println(user);
+        Authentication authentication = authenticationManager.authenticate(
+                new UsernamePasswordAuthenticationToken(
+                        user.getUsername(),
+                        user.getPassword()
+                )
+        );
+
+        if (authentication.isAuthenticated()) {
+            return jwtService.generateToken(user.getUsername());
+        }
+
+        return "Login failed";
+    }
 }
